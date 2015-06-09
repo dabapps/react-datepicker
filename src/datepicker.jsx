@@ -49,7 +49,7 @@ var DatePicker = React.createClass({
 
   clearSelected: function() {
     this.props.onChange(null);
-  },
+  },  
 
   onInputClick: function() {
     this.setState({

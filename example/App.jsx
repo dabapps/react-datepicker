@@ -11,8 +11,7 @@ var exampleComponent = React.createClass({
       end_date: moment(),
       new_date: null,
       bound_date: null,
-      example5Selected: null,
-      example6Selected: null
+      example5Selected: null
     };
   },
 
@@ -43,12 +42,6 @@ var exampleComponent = React.createClass({
   handleExample5Change: function(date) {
     this.setState({
       example5Selected: date
-    });
-  },
-
-   handleExample6Change: function(date) {
-    this.setState({
-      example6Selected: date
     });
   },
 
@@ -85,13 +78,6 @@ var exampleComponent = React.createClass({
         onChange={this.handleExample5Change}
         weekStart="0"
         placeholderText="I start on Sunday!"
-      />
-      <DatePicker
-        key="example6"
-        selected={this.state.example6Selected}
-        onChange={this.handleExample6Change}
-        excludeDates={[moment(), moment().subtract(1, 'days')]}
-        placeholderText="Select a date other than today or yesterday"
       />
     </div>;
   }
