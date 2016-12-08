@@ -125,9 +125,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-jsxhint');
   grunt.loadNpmTasks('grunt-webpack');
 
-  grunt.registerTask('default', ['watch', 'scsslint']);
+  grunt.registerTask('default', ['watch']);
   grunt.registerTask('travis', ['jshint', 'jest', 'scsslint']);
-  grunt.registerTask('build', ['jshint', 'scsslint', 'webpack', 'sass']);
+  grunt.registerTask('build', ['webpack', 'sass']);
 
   grunt.registerTask('jest', require('./grunt/tasks/jest'));
 };
