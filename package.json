@@ -60,7 +60,7 @@
   "scripts": {
     "test": "grunt travis --verbose",
     "build-dirs": "mkdir -p dist",
-    "build-js": "browserify --external react -t babelify src/datepicker.js | derequire > dist/react-datepicker.js",
+    "build-js": "browserify --exclude react -t babelify src/datepicker.js | derequire > dist/react-datepicker.js",
     "build-sass": "node-sass src/stylesheets/datepicker.scss > dist/react-datepicker.css",
     "build": "npm run build-dirs && npm run build-js && npm run build-sass",
     "postinstall": "npm run build"
