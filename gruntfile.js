@@ -1,7 +1,11 @@
 'use strict';
 
+var grunt = require('grunt');
 var _ = require('lodash');
 var webpack = require('webpack');
+
+grunt.file.mkdir('dist/');
+grunt.file.mkdir('example/boot/');
 
 var mergeWebpackConfig = function (config) {
   // Load webpackConfig only when using `grunt:webpack`
