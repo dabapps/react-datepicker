@@ -4,9 +4,6 @@ var grunt = require('grunt');
 var _ = require('lodash');
 var webpack = require('webpack');
 
-grunt.file.mkdir('dist/');
-grunt.file.mkdir('example/boot/');
-
 var mergeWebpackConfig = function (config) {
   // Load webpackConfig only when using `grunt:webpack`
   // load of grunt tasks is faster
@@ -21,6 +18,7 @@ var mergeWebpackConfig = function (config) {
 module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+
     sass: {
       min: {
         files: {
@@ -131,7 +129,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('default', ['watch']);
   grunt.registerTask('travis', ['jshint', 'jest', 'scsslint']);
-  grunt.registerTask('build', ['webpack', 'sass']);
+  grunt.registerTask('build', ['webpack:unmin', 'webpack:min', 'sass']);
 
   grunt.registerTask('jest', require('./grunt/tasks/jest'));
 };
