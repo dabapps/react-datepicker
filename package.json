@@ -50,6 +50,7 @@
     "grunt-webpack": "^1.0.8",
     "lodash": "^3.3.0",
     "moment": "^2.8",
+    "node-sass": "=3.13.0",
     "react": ">=0.12 <0.14",
     "react-onclickoutside": "0.2.2",
     "tether": "^0.6",
@@ -60,7 +61,7 @@
     "test": "grunt travis --verbose",
     "build-dirs": "mkdir -p dist",
     "build-js": "browserify -t babelify src/datepicker.js | derequire > dist/react-datepicker.js",
-    "build-sass": "grunt sass",
+    "build-sass": "node-sass src/stylesheets/datepicker.scss > dist/react-datepicker.css",
     "build": "npm run build-dirs && npm run build-js && npm run build-sass",
     "postinstall": "npm run build"
   },
