@@ -51,7 +51,7 @@
     "lodash": "^3.3.0",
     "moment": "^2.8",
     "node-sass": "=3.13.0",
-    "react": ">=0.12 <0.14",
+    "react": "=0.13.3",
     "react-onclickoutside": "0.2.2",
     "tether": "^0.6",
     "webpack": "^1.7.2",
@@ -60,7 +60,7 @@
   "scripts": {
     "test": "grunt travis --verbose",
     "build-dirs": "mkdir -p dist",
-    "build-js": "browserify --exclude react -t babelify src/datepicker.js | derequire > dist/react-datepicker.js",
+    "build-js": "browserify -t babelify --standalone react-datepicker --exclude react src/datepicker.js > dist/react-datepicker.js",
     "build-sass": "node-sass src/stylesheets/datepicker.scss > dist/react-datepicker.css",
     "build": "npm run build-dirs && npm run build-js && npm run build-sass",
     "postinstall": "npm run build"
