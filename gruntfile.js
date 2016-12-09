@@ -1,5 +1,6 @@
 'use strict';
 
+var grunt = require('grunt');
 var _ = require('lodash');
 var webpack = require('webpack');
 
@@ -17,6 +18,7 @@ var mergeWebpackConfig = function (config) {
 module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+
     sass: {
       min: {
         files: {
@@ -125,9 +127,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-jsxhint');
   grunt.loadNpmTasks('grunt-webpack');
 
-  grunt.registerTask('default', ['watch', 'scsslint']);
+  grunt.registerTask('default', ['watch']);
   grunt.registerTask('travis', ['jshint', 'jest', 'scsslint']);
-  grunt.registerTask('build', ['jshint', 'scsslint', 'webpack', 'sass']);
+  grunt.registerTask('build', ['webpack:unmin', 'webpack:min', 'sass']);
 
   grunt.registerTask('jest', require('./grunt/tasks/jest'));
 };

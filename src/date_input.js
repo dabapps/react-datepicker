@@ -30,9 +30,9 @@ var DateInput = React.createClass({
 
   toggleFocus: function(focus) {
     if (focus) {
-      React.findDOMNode(this.refs.input).focus();
+      this.getDOMNode().focus();
     } else {
-      React.findDOMNode(this.refs.input).blur();
+      this.getDOMNode().blur();
     }
   },
 
@@ -70,7 +70,6 @@ var DateInput = React.createClass({
   render: function() {
     return <input
       {...this.props}
-      ref="input"
       type="text"
       value={this.state.value}
       onClick={this.handleClick}
